@@ -1,23 +1,26 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
-  </div>
+  <v-app id="app">
+  <navbar />
+  <main>
+    <v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+  </main>
+  <v-footer>Proiect SSD Vue Shop</v-footer>
+  </v-app>
 </template>
 
 <script>
+import navbar from '@/components/Nav'
 export default {
-  name: 'app'
+  name: 'app',
+  components: { navbar }
 }
+
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

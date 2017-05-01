@@ -1,6 +1,6 @@
 <template>
 <v-toolbar>
-  <v-toolbar-title>Vue Mini Shop</v-toolbar-title>
+  <router-link tag="v-toolbar-title" :to="{name: 'Index'}">Vue Mini Shop</router-link>
   <v-toolbar-items>
     <v-toolbar-item ripple>
     <v-text-field prepend-icon="search" label="Search..." v-model="localKey" @keyup.enter.native="save" hide-details single-line dark>

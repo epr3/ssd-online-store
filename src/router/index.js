@@ -18,3 +18,4 @@ export default new Router({ routes: [
     meta: { requiresAnonymous: true }
   }]
 })
+

@@ -32,9 +32,7 @@ firebaseApp.auth().onAuthStateChanged(user => {
       }
     })
   }
-  if (user === null) {
-    router.push({ name: 'Login' })
-  } else {
+  if (user !== null) {
     store.dispatch('loadUser', { user, app })
   }
   store.commit('user', user)

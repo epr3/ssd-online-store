@@ -7,22 +7,7 @@
     </v-text-field>
     </v-toolbar-item>
     <v-toolbar-item>
-    <v-menu bottom left offset-y origin="top right" transition="v-slide-y-transition">
-      <v-btn flat dark slot="activator">
-      Category
-        <v-icon>more_vert</v-icon>
-      </v-btn>
-      <v-list>
-        <v-list-item>
-          <v-list-tile>
-            <v-list-tile-title></v-list-tile-title>
-          </v-list-tile>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-    </v-toolbar-item>
-    <v-toolbar-item>
-    Shopping cart <v-icon>shopping_cart</v-icon>
+    Shopping cart <v-icon v-badge:0.right class="red--after">shopping_cart</v-icon>
     </v-toolbar-item>
     <v-toolbar-item v-if="!currentUser" :to="{name: 'Login'}" router>Login</v-toolbar-item>
     <v-toolbar-item v-if="currentUser" @click.native="signOut" ripple>Sign out</v-toolbar-item>
@@ -39,7 +24,7 @@ export default {
   },
   name: 'navbar',
   computed: Vuex.mapGetters([
-    'currentUser', 'searchKey'
+    'currentUser'
   ]),
   methods: {
     signOut () {

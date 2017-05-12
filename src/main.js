@@ -17,24 +17,21 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-var app = null
-/* eslint-disable no-new */
-firebaseApp.auth().onAuthStateChanged(user => {
-/* eslint-disable no-new */
-  if (!app) {
-    app = new Vue({
-      el: '#app',
-      name: 'App',
-      router,
-      render: h => h(require('./App')),
-      store: store,
-      firebase: {
+let app = new Vue({
+  el: '#app',
+  name: 'App',
+  router,
+  render: h => h(require('./App')),
+  store: store,
+  firebase: {
+    products: firebaseApp.database().ref('products')
+  },
+  created () {
+    firebaseApp.auth().onAuthStateChanged(user => {
+      if (user !== null) {
+        store.dispatch('loadUser', { user, app })
       }
+      store.commit('user', user)
     })
   }
-  if (user !== null) {
-    store.dispatch('loadUser', { user, app })
-  }
-  store.commit('user', user)
 })
-

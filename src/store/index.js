@@ -18,6 +18,7 @@ export const store = new Vuex.Store({
       password: ''
     },
     clients: null,
+    products: null,
     searchKey: ''
   },
   mutations: {
@@ -133,7 +134,8 @@ export const store = new Vuex.Store({
     clients: state => state.clients,
     currentUser: state => state.user && state.userObj ? state.userObj : null,
     errors: state => state.errors,
-    searchKey: state => state.searchKey
+    searchKey: state => state.searchKey,
+    products: state => state.products
   }
 })
 

@@ -11,6 +11,7 @@
           <v-text-field
             name="input-1"
             v-model="email"
+            v-bind:rules="[errors.email,errors.password]"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -63,6 +64,7 @@
           <v-text-field
             name="input-1"
             v-model="email"
+             v-bind:rules="[errors.email,errors.password]"
           ></v-text-field>
         </v-col>
       </v-row>

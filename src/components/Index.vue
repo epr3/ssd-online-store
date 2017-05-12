@@ -27,11 +27,6 @@
             <v-icon>view_list</v-icon>
             {{ item.stock }}</v-card-row>
             </v-card-text>
-            <!-- <v-card-row actions>
-              <v-btn flat class="red--text darken-1">
-                <v-icon>favorite_border</v-icon>
-              </v-btn>
-            </v-card-row> -->
           </router-link>
         </v-col>
       </v-row>

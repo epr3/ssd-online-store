@@ -51,9 +51,13 @@
         </v-card-text>
       </v-card-row>
       <v-card-row actions>
-        <v-btn flat large>
+        <v-btn v-if="!addedToCart" flat large @click.native="addToCart">
           <v-icon>add_shopping_cart</v-icon>Add to cart
         </v-btn>
+        <template v-else>
+        <v-btn router flat large :to="{name: 'Index'}"><v-icon>attach_money</v-icon>Continue shopping</v-btn>
+        <v-btn router tag="v-btn" flat large :to="{name: 'ShoppingCart'}"><v-icon>shopping_cart</v-icon>View Cart</v-btn>
+        </template>
       </v-card-row>
     </v-card-column>
   </v-card>
@@ -69,15 +73,29 @@ export default {
       selectedGender: '',
       sizes: ['S', 'M', 'L', 'XL'],
       genders: ['Men', 'Women'],
-      quantity: 0
+      quantity: 1,
+      addedToCart: false
     }
   },
   computed: {
     ...Vuex.mapGetters([
-      'products'
+      'products', 'shoppingCart'
     ]),
     currentProduct () {
       return this.products.find(product => product.name === this.$route.params.name)
+    }
+  },
+  methods: {
+    addToCart () {
+      this.addedToCart = true
+      let cartItem = {
+        product: this.currentProduct['.key'],
+        size: this.selectedSize,
+        gender: this.selectedGender,
+        quantity: this.quantity
+      }
+      if (this.shoppingCart.findIndex(item => cartItem.product === item.product && cartItem.size === item.size && cartItem.gender === item.gender) > -1) this.$store.commit('incrementQuantity', {index: this.shoppingCart.findIndex(item => cartItem.product === item.product && cartItem.size === item.size && cartItem.gender === item.gender), quantity: cartItem.quantity})
+      else this.$store.commit('addShoppingCartItem', cartItem)
     }
   },
   watch: {

@@ -8,6 +8,15 @@
           </v-list-tile>
         </v-list-item>
       </v-list>
+      <v-select
+            class="ma-2"
+            v-bind:items="sortValues"
+            v-model="sort"
+            label="Sort"
+            light
+            single-line
+            auto
+          />
     </v-col>
     <v-col xs10>
       <v-row>
@@ -40,7 +49,9 @@ export default {
   data () {
     return {
       selectedCategory: 'All',
-      categories: ['T-Shirts', 'Jeans', 'Jackets', 'All']
+      categories: ['T-Shirts', 'Jeans', 'Jackets', 'All'],
+      sortValues: ['Alphabetically A-Z', 'Alphabetically Z-A', 'Price lowest to highest', 'Price highest to lowest', 'None'],
+      sort: ''
     }
   },
   computed: {
@@ -48,8 +59,18 @@ export default {
       'currentUser', 'searchKey', 'products'
     ]),
     computedProducts () {
-      if (this.selectedCategory === 'All') return this.products
-      else return this.products.filter(product => product.category === this.selectedCategory)
+      let compProd
+      if (this.selectedCategory === 'All') compProd = this.products
+      else compProd = this.products.filter(product => product.category === this.selectedCategory)
+      return compProd.filter(product => product.name.toLowerCase().includes(this.searchKey)).sort((a, b) => {
+        switch (this.sort) {
+          case 'Alphabetically A-Z': return a.name < b.name
+          case 'Alphabetically Z-A': return a.name > b.name
+          case 'Price lowest to highest': return a.price - b.price
+          case 'Price highest to lowest': return b.price - a.price
+          default: return 0
+        }
+      })
     }
   }
 }

@@ -6,8 +6,8 @@
     <v-text-field prepend-icon="search" label="Search..." v-model="localKey" @keyup.enter.native="save" hide-details single-line dark>
     </v-text-field>
     </v-toolbar-item>
-    <v-toolbar-item>
-    Shopping cart <v-icon v-badge:0.right class="red--after">shopping_cart</v-icon>
+    <v-toolbar-item router :to="{name: 'ShoppingCart'}">
+    Shopping cart <v-icon v-badge="{value: shoppingCart.length, right: true}" class="red--after">shopping_cart</v-icon>
     </v-toolbar-item>
     <v-toolbar-item v-if="!currentUser" :to="{name: 'Login'}" router>Login</v-toolbar-item>
     <v-toolbar-item v-if="currentUser" @click.native="signOut" ripple>Sign out</v-toolbar-item>
@@ -24,7 +24,7 @@ export default {
   },
   name: 'navbar',
   computed: Vuex.mapGetters([
-    'currentUser'
+    'currentUser', 'shoppingCart'
   ]),
   methods: {
     signOut () {

@@ -19,6 +19,7 @@ export const store = new Vuex.Store({
     },
     clients: null,
     products: null,
+    shoppingCart: [],
     searchKey: ''
   },
   mutations: {
@@ -32,6 +33,12 @@ export const store = new Vuex.Store({
     },
     setSearchKey (state, value) {
       state.searchKey = value
+    },
+    addShoppingCartItem (state, object) {
+      state.shoppingCart.push(object)
+    },
+    incrementQuantity (state, quantityObject) {
+      state.shoppingCart[quantityObject.index].quantity += parseInt(quantityObject.quantity)
     }
   },
   actions: {
@@ -135,7 +142,8 @@ export const store = new Vuex.Store({
     currentUser: state => state.user && state.userObj ? state.userObj : null,
     errors: state => state.errors,
     searchKey: state => state.searchKey,
-    products: state => state.products
+    products: state => state.products,
+    shoppingCart: state => state.shoppingCart
   }
 })
 

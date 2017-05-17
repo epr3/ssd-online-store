@@ -1,5 +1,6 @@
 <template>
   <div>
+  <template v-if="shoppingCart.length > 0">
     <v-row>
     <v-col xs4 offset-xs4>
     <v-list three-line>
@@ -75,6 +76,8 @@
     </v-card-row>
   </v-card>
 </v-dialog>
+</template>
+<p v-else> You do not have any products in your cart!</p>
   </div>
 </template>
 <script>

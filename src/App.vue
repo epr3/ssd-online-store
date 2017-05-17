@@ -2,8 +2,7 @@
   <v-app id="app">
   <navbar />
   <main>
-  <v-progress-circular v-if="loading" size="150" indeterminate class="primary--text loader" />
-    <v-content v-if="!loading">
+    <v-content>
       <v-container fluid>
         <router-view></router-view>
       </v-container>
@@ -23,9 +22,4 @@ export default {
 </script>
 
 <style lang="scss">
-.loader{
-  position: relative;
-  top: 50%;
-  left: 50%;
-}
 </style>

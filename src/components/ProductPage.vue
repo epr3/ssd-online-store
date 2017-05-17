@@ -94,6 +94,8 @@ export default {
         gender: this.selectedGender,
         quantity: this.quantity
       }
+      cartItem.stock = this.products[cartItem.product].stock
+      cartItem.price = this.products[cartItem.product].price
       if (this.shoppingCart.findIndex(item => cartItem.product === item.product && cartItem.size === item.size && cartItem.gender === item.gender) > -1) this.$store.commit('incrementQuantity', {index: this.shoppingCart.findIndex(item => cartItem.product === item.product && cartItem.size === item.size && cartItem.gender === item.gender), quantity: cartItem.quantity})
       else this.$store.commit('addShoppingCartItem', cartItem)
     }

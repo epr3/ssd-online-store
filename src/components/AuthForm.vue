@@ -7,11 +7,11 @@
         <v-col xs4>
           <v-subheader>E-mail</v-subheader>
         </v-col>
-        <v-col xs8>
+        <v-col xs6>
           <v-text-field
             name="input-1"
             v-model="email"
-            v-bind:rules="[errors.email,errors.password]"
+            :rules="errors.email"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -19,17 +19,18 @@
         <v-col xs4>
           <v-subheader>Password</v-subheader>
         </v-col>
-        <v-col xs8>
+        <v-col xs6>
           <v-text-field
-            name="input-1"
+            name="input-2"
             v-model="password"
             type="password"
+            :rules="errors.password"
           ></v-text-field>
         </v-col>
-        <div>
+      </v-row>
+      <div>
           <v-btn light flat @click.native="signIn">Login</v-btn>
         </div>
-      </v-row>
     </v-container>
     </form>
     <form novalidate @submit.stop.prevent>
@@ -123,6 +124,10 @@
     <div>
       <v-btn light flat v-if="!loginMode" @click.native="register">Register</v-btn>
     </div>
+    <v-snackbar
+    timeout=3000
+    v-model="snackbar"
+  > {{ snackBarText }}</v-snackbar>
   </v-card>
 </template>
 
@@ -139,7 +144,9 @@ export default {
       phone: '',
       email: '',
       password: '',
-      loginMode: true
+      loginMode: true,
+      snackbar: false,
+      snackbarText: ''
     }
   },
   computed: {
@@ -180,7 +187,8 @@ export default {
           password: this.password
         })
       } else {
-        console.log('nu merge')
+        this.snackbarText = 'Passwords do not match'
+        this.snackbar = true
       }
     }
   }

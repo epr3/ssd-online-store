@@ -20,9 +20,6 @@ router.beforeEach((to, from, next) => {
 let app = new Vue({
   el: '#app',
   name: 'App',
-  data: {
-    loading: true
-  },
   router,
   render: h => h(require('./App')),
   store: store,
@@ -30,7 +27,6 @@ let app = new Vue({
     products: firebaseApp.database().ref('products')
   },
   mounted () {
-    this.loading = false
     firebaseApp.auth().onAuthStateChanged(user => {
       if (user !== null) {
         store.dispatch('loadUser', { user, app })

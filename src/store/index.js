@@ -17,10 +17,10 @@ export const store = new Vuex.Store({
       email: '',
       password: ''
     },
-    clients: null,
     products: null,
     shoppingCart: [],
-    searchKey: ''
+    searchKey: '',
+    orders: null
   },
   mutations: {
     ...VuexFire.mutations,
@@ -39,6 +39,9 @@ export const store = new Vuex.Store({
     },
     incrementQuantity (state, quantityObject) {
       state.shoppingCart[quantityObject.index].quantity += parseInt(quantityObject.quantity)
+    },
+    emptyShoppingCart (state) {
+      state.shoppingCart = []
     }
   },
   actions: {
@@ -130,6 +133,18 @@ export const store = new Vuex.Store({
     updateSearchKey ({commit, state}, value) {
       commit('setSearchKey', value)
     },
+    checkOut ({commit, state}, order) {
+      order.products.forEach(item => {
+        firebaseApp.database().ref('products/' + item.product).update({stock: item.stock})
+        delete item.stock
+        delete item.price
+      })
+      if (order.user) {
+        firebaseApp.database().ref('orders/' + order.user).push().set({address: order.address, orderValue: order.orderValue, products: order.products, timestamp: order.timestamp})
+      } else {
+        firebaseApp.database().ref('orders').push().push().set({address: order.address, orderValue: order.orderValue, products: order.products, timestamp: order.timestamp})
+      }
+    },
     signout (store, payload) {
       payload.$root.$unbind('userObj')
       firebaseApp.auth().signOut()
@@ -138,7 +153,6 @@ export const store = new Vuex.Store({
   getters: {
     userObj: state => state.userObj,
     user: state => state.user,
-    clients: state => state.clients,
     currentUser: state => state.user && state.userObj ? state.userObj : null,
     errors: state => state.errors,
     searchKey: state => state.searchKey,

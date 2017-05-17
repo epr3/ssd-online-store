@@ -15,7 +15,7 @@
             Gender: {{item.gender}}<br>
             Size: {{item.size}}<br>
             Quantity: {{item.quantity}}<br>
-            Price: &euro; {{products[item.product].price}}
+            Price: &euro; {{products[item.product].price * item.quantity}}
           </v-list-tile-content>
         </v-list-tile>
       </v-list-item>

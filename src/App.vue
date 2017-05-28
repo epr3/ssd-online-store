@@ -8,7 +8,7 @@
       </v-container>
     </v-content>
   </main>
-  <v-footer>Proiect SSD Vue Shop</v-footer>
+  <v-footer>Proiect Vue Shop</v-footer>
   </v-app>
 </template>
 

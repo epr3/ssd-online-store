@@ -1,6 +1,6 @@
 <template>
-  <v-row class="ma-4">
-      <v-col xs12>
+  <v-layout row wrap class="ma-4">
+      <v-flex xs12>
       <v-card horizontal class="pa-3">
     <v-card-row :img="currentProduct.url" height="400px"></v-card-row>
     <v-card-column>
@@ -18,7 +18,7 @@
             <v-icon>view_list</v-icon>
             {{ currentProduct.stock }}</v-card-row>
           <v-card-row>
-          <v-col xs2>
+          <v-flex xs2>
           <v-select
             v-bind:items="sizes"
             v-model="selectedSize"
@@ -27,8 +27,8 @@
             single-line
             auto
           />
-          </v-col>
-          <v-col xs2>
+          </v-flex>
+          <v-flex xs2>
           <v-select
             v-bind:items="genders"
             v-model="selectedGender"
@@ -37,8 +37,8 @@
             single-line
             auto
           />
-          </v-col>
-          <v-col xs2>
+          </v-flex>
+          <v-flex xs2>
           <v-text-field
             v-model="quantity"
             label="Quantity"
@@ -46,7 +46,7 @@
             single-line
             type="number"
           ></v-text-field>
-          </v-col>
+          </v-flex>
           </v-card-row>
         </v-card-text>
       </v-card-row>
@@ -61,8 +61,8 @@
       </v-card-row>
     </v-card-column>
   </v-card>
-  </v-col>
-  </v-row>
+  </v-flex>
+  </v-layout row wrap>
 </template>
 <script>
 import Vuex from 'vuex'

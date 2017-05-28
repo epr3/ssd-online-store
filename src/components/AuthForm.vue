@@ -3,31 +3,31 @@
   <v-card-text>
   <form novalidate @submit.stop.prevent>
   <v-container fluid v-if="loginMode">
-      <v-row row>
-        <v-col xs4>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>E-mail</v-subheader>
-        </v-col>
-        <v-col xs6>
+        </v-flex>
+        <v-flex xs6>
           <v-text-field
             name="input-1"
             v-model="email"
             :rules="errors.email"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Password</v-subheader>
-        </v-col>
-        <v-col xs6>
+        </v-flex>
+        <v-flex xs6>
           <v-text-field
             name="input-2"
             v-model="password"
             type="password"
             :rules="errors.password"
           ></v-text-field>
-        </v-col>
-      </v-row>
+        </v-flex>
+      </v-layout row wrap>
       <div>
           <v-btn light flat @click.native="signIn">Login</v-btn>
         </div>
@@ -35,87 +35,87 @@
     </form>
     <form novalidate @submit.stop.prevent>
     <v-container fluid v-if="!loginMode">
-      <v-row row>
-        <v-col xs4>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Name</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="name"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Surname</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="surname"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>E-mail</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="email"
              v-bind:rules="errors.email"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Address</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="address"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Phone</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="phone"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Password</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="password"
             type="password"
             :rules="errors.password"
           ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row row>
-        <v-col xs4>
+        </v-flex>
+      </v-layout row wrap>
+      <v-layout row wrap row>
+        <v-flex xs4>
           <v-subheader>Confirm password</v-subheader>
-        </v-col>
-        <v-col xs8>
+        </v-flex>
+        <v-flex xs8>
           <v-text-field
             name="input-1"
             v-model="confirmPassword"
             type="password"
           ></v-text-field>
-        </v-col>
-      </v-row>
+        </v-flex>
+      </v-layout row wrap>
     </v-container>
     </form>
     </v-card-text>

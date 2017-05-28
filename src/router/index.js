@@ -20,7 +20,7 @@ export default new Router({ routes: [
     meta: { requiresAnonymous: true }
   },
   {
-    path: '/products/:name',
+    path: '/products/:product',
     name: 'ProductPage',
     component: ProductPage
   },

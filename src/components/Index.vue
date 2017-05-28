@@ -1,6 +1,6 @@
 <template>
-  <v-row class="mt-4">
-    <v-col xs2>
+  <v-layout row wrap class="mt-4">
+    <v-flex xs2>
       <v-list>
         <v-list-item v-for="category in categories" :key="category" :class="{'grey lighten-2': selectedCategory === category}">
           <v-list-tile @click.native="selectedCategory = category">
@@ -17,11 +17,11 @@
             single-line
             auto
           />
-    </v-col>
-    <v-col xs10>
-      <v-row>
-        <v-col class="mb-4" v-for="item in computedProducts" :key="item" xs3>
-          <router-link tag="v-card" :to="{name:'ProductPage', params: { name: item.name }}" class="pa-2">
+    </v-flex>
+    <v-flex xs10>
+       <v-layout row wrap>
+          <v-flex xs4 class="mb-4" v-for="item in computedProducts" :key="item">
+          <router-link tag="v-card" :to="{name:'ProductPage', params: { product: item.name }}" class="pa-2">
             <v-card-row :img="item.url" height="250px"></v-card-row>
             <v-card-text>
             <v-card-row><strong>{{ item.name }}</strong></v-card-row>
@@ -37,10 +37,10 @@
             {{ item.stock }}</v-card-row>
             </v-card-text>
           </router-link>
-        </v-col>
-      </v-row>
-    </v-col>
-  </v-row>
+          </v-flex>
+        </v-layout>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>

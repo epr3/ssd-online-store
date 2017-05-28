@@ -1,8 +1,8 @@
 <template>
   <div>
   <template v-if="shoppingCart.length > 0">
-    <v-row>
-    <v-col xs4 offset-xs4>
+    <v-layout row wrap>
+    <v-flex xs4 offset-xs4>
     <v-list three-line>
     <template v-for="item in shoppingCart">
       <v-divider />
@@ -22,10 +22,10 @@
       </v-list-item>
     </template>
   </v-list>
-  </v-col>
-  </v-row>
-  <v-row>
-  <v-col xs2 offset-xs5>
+  </v-flex>
+  </v-layout row wrap>
+  <v-layout row wrap>
+  <v-flex xs2 offset-xs5>
    <v-text-field v-if="!useUserAddress"
             v-model="billingAddress"
             label="Address"
@@ -37,8 +37,8 @@
   <v-btn flat large @click.native="checkOut">
       <v-icon>monetization_on</v-icon>Check out
   </v-btn>
-  </v-col>
-  </v-row>
+  </v-flex>
+  </v-layout row wrap>
   <v-dialog v-model="modalOpen" persistent>
   <v-card>
     <v-card-row>

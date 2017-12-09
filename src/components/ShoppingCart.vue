@@ -77,8 +77,8 @@
   </v-card>
 </v-dialog>
 </template>
-<p v-else> You do not have any products in your cart!</p>
-  </div>
+<v-alert class="error" icon="warning" value="true" v-else> You do not have any products in your cart!</v-alert>
+</div>
 </template>
 <script>
 import Vuex from 'vuex'

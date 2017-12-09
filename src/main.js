@@ -3,6 +3,8 @@ import Vuetify from 'vuetify'
 import router from '@/router'
 import { store, firebaseApp } from '@/store'
 
+import('../node_modules/vuetify/dist/vuetify.min.css')
+
 Vue.use(Vuetify)
 
 router.beforeEach((to, from, next) => {

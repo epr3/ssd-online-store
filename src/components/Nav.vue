@@ -1,8 +1,8 @@
 <template>
-<v-toolbar>
+<v-toolbar light color="white">
   <router-link tag="v-toolbar-title" :to="{name: 'Index'}">Vue Mini Shop</router-link>
   <v-toolbar-items>
-    <v-toolbar-item class="white--text" ripple>
+    <v-toolbar-item ripple>
     <v-text-field  prepend-icon="search" label="Search..." v-model="localKey" @keyup.enter.native="save" hide-details single-line light>
     </v-text-field>
     </v-toolbar-item>
@@ -14,6 +14,7 @@
   </v-toolbar-items>
 </v-toolbar>
 </template>
+
 <script>
 import Vuex from 'vuex'
 export default {

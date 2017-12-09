@@ -1,0 +1,45 @@
+[debug] [2017-12-09T11:34:40.468Z] ----------------------------------------------------------------------
+[debug] [2017-12-09T11:34:40.473Z] Command:       /usr/bin/node /usr/bin/firebase deploy --debug
+[debug] [2017-12-09T11:34:40.474Z] CLI Version:   3.16.0
+[debug] [2017-12-09T11:34:40.474Z] Platform:      linux
+[debug] [2017-12-09T11:34:40.474Z] Node Version:  v8.9.1
+[debug] [2017-12-09T11:34:40.474Z] Time:          Sat Dec 09 2017 13:34:40 GMT+0200 (EET)
+[debug] [2017-12-09T11:34:40.474Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-09T11:34:40.488Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-09T11:34:40.489Z] > authorizing via signed-in user
+[debug] [2017-12-09T11:34:40.491Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-09T11:34:40.492Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/zuuGxLYEZiwA2__8UnGsAo9ztt0mJ_yq_qFOsO4VY6A',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Dec 09 2017 13:34:40 GMT+0200 (EET)
+[debug] [2017-12-09T11:34:40.747Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-09T11:34:40.798Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/ssd-store  
+  
+ Sat Dec 09 2017 13:34:40 GMT+0200 (EET)
+[debug] [2017-12-09T11:34:41.519Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-09T11:34:41.522Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/ssd-store/tokens  
+  
+ Sat Dec 09 2017 13:34:41 GMT+0200 (EET)
+[debug] [2017-12-09T11:34:42.454Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-09T11:35:15.703Z] ----------------------------------------------------------------------
+[debug] [2017-12-09T11:35:15.708Z] Command:       /usr/bin/node /usr/bin/firebase deploy --debug
+[debug] [2017-12-09T11:35:15.708Z] CLI Version:   3.16.0
+[debug] [2017-12-09T11:35:15.709Z] Platform:      linux
+[debug] [2017-12-09T11:35:15.709Z] Node Version:  v8.9.1
+[debug] [2017-12-09T11:35:15.709Z] Time:          Sat Dec 09 2017 13:35:15 GMT+0200 (EET)
+[debug] [2017-12-09T11:35:15.709Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-09T11:35:15.723Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-09T11:35:15.724Z] > authorizing via signed-in user
+[debug] [2017-12-09T11:35:15.727Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/ssd-store  
+  
+ Sat Dec 09 2017 13:35:15 GMT+0200 (EET)
+[debug] [2017-12-09T11:35:16.523Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-09T11:35:16.525Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/ssd-store/tokens  
+  
+ Sat Dec 09 2017 13:35:16 GMT+0200 (EET)
+[debug] [2017-12-09T11:35:17.290Z] <<< HTTP RESPONSE 200

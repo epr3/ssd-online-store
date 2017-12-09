@@ -1,14 +1,12 @@
 <template>
-  <v-app id="app">
+  <v-app class="pb-5" id="app">
   <navbar />
-  <main>
-    <v-content>
-      <v-container fluid>
-        <router-view></router-view>
-      </v-container>
-    </v-content>
-  </main>
-  <v-footer>Proiect Vue Shop</v-footer>
+  <v-content>
+    <router-view>
+      <v-container fluid></v-container>
+    </router-view>
+  </v-content>
+  <v-footer absolute app>Proiect Vue Shop</v-footer>
   </v-app>
 </template>
 
@@ -22,4 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
+#app {
+  min-height: 100%;
+}
 </style>
